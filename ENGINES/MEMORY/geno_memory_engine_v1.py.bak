@@ -1,0 +1,25 @@
+import json,os,datetime
+
+DB=os.path.expanduser("~/GENO_OPERATOR/memory_db.json")
+
+def load():
+    if not os.path.exists(DB):
+        return []
+    with open(DB) as f:
+        return json.load(f)
+
+def save(data):
+    with open(DB,"w") as f:
+        json.dump(data,f,indent=4)
+
+def remember(text):
+    data=load()
+    data.append({
+        "time":str(datetime.datetime.now()),
+        "data":text
+    })
+    save(data)
+
+if __name__=="__main__":
+    remember("memory engine test")
+    print("GENO MEMORY ENGINE ACTIVE")

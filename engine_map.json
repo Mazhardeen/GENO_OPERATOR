@@ -1,0 +1,22 @@
+{
+  "engines": [
+    {
+      "name": "geno_test_engine.py",
+      "path": "/data/data/com.termux/files/home/GENO_OPERATOR/GENERATED/geno_test_engine.py",
+      "created": "2026-03-15 16:47:37.793329",
+      "category": "generated"
+    },
+    {
+      "name": "geno_goat_farming_engine.py",
+      "path": "/data/data/com.termux/files/home/GENO_OPERATOR/GENERATED/geno_goat_farming_engine.py",
+      "created": "2026-03-15 16:47:37.793412",
+      "category": "generated"
+    },
+    {
+      "name": "geno_goat_health_engine.py",
+      "path": "/data/data/com.termux/files/home/GENO_OPERATOR/GENERATED/geno_goat_health_engine.py",
+      "created": "2026-03-15 16:47:37.793451",
+      "category": "generated"
+    }
+  ]
+}

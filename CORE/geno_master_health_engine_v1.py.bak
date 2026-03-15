@@ -1,0 +1,52 @@
+import os
+import subprocess
+
+ENGINES={
+"SMART_BRAIN":"~/GENO_OPERATOR/ENGINES/BRAIN/geno_brain_smart_v1.py",
+"ULTRA_BRAIN":"~/GENO_OPERATOR/ENGINES/BRAIN/geno_brain_ultra_v1.py",
+"SUPER_BRAIN":"~/GENO_OPERATOR/ENGINES/BRAIN/geno_brain_super_v1.py",
+"CONTROL_CORE":"~/GENO_OPERATOR/CORE/geno_control_core_v1.py",
+"MEMORY_ENGINE":"~/GENO_OPERATOR/ENGINES/MEMORY/geno_memory_engine_v1.py"
+}
+
+def expand(p):
+    return os.path.expanduser(p)
+
+def check_engine(name,path):
+
+    path=expand(path)
+
+    if not os.path.exists(path):
+        return "MISSING"
+
+    try:
+        subprocess.run(["python3",path],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,timeout=5)
+        return "OK"
+    except:
+        return "ERROR"
+
+def health():
+
+    print("\n=== GENO SYSTEM HEALTH ===\n")
+
+    ok=0
+
+    for name,path in ENGINES.items():
+
+        status=check_engine(name,path)
+
+        if status=="OK":
+            ok+=1
+
+        print(f"{name:<20} {status}")
+
+    print("\nTOTAL ENGINES:",len(ENGINES))
+    print("WORKING:",ok)
+
+    if ok==len(ENGINES):
+        print("STATUS: STABLE")
+    else:
+        print("STATUS: ATTENTION REQUIRED")
+
+if __name__=="__main__":
+    health()

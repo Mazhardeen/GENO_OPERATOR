@@ -1,0 +1,69 @@
+{
+    "UTILITY": [
+        "geno_dna_engine_v1",
+        "geno_cloud_sync_engine_v1",
+        "geno_restore_engine_v1",
+        "geno_gcs_bridge_v1",
+        "geno_root_registry_engine_v1",
+        "geno_ceo_engine_v1",
+        "geno_test_engine_v1",
+        "geno_video_editor_engine_v1",
+        "geno_system_gap_check_engine_v1",
+        "geno_deep_system_check_engine_v1",
+        "geno_mass_engine_restore_v1",
+        "geno_ultra_deep_system_check_engine_v1",
+        "geno_fix_empty_engines_v1",
+        "geno_ultra_deep_system_check_v2",
+        "geno_engine_tracker_v1",
+        "geno_interest_engine_builder_v1",
+        "geno_engine_improvement_engine_v1",
+        "geno_gap_detector_engine_v1",
+        "geno_architect_engine_v1"
+    ],
+    "ENGINE_FACTORY": [
+        "geno_engine_factory"
+    ],
+    "REPAIR": [
+        "geno_ultra_super_self_repair_engine_v1",
+        "geno_supervisor_worker_engine_v1",
+        "geno_repair_company_engine_v1",
+        "geno_all_rounder_worker_engine_v1",
+        "geno_repair_network_engine_v1",
+        "geno_super_self_repair_engine_v1",
+        "geno_qualified_worker_engine_v1",
+        "geno_repair_lock_engine_v1"
+    ],
+    "HEALTH": [
+        "geno_full_system_audit_engine_v2",
+        "geno_master_health_engine_v1",
+        "geno_full_system_audit_engine_v1",
+        "geno_master_health_engine_v2",
+        "geno_final_system_health_engine_v1"
+    ],
+    "BRAIN": [
+        "geno_brain_engine_v1",
+        "geno_brain_smart_v1",
+        "geno_brain_ultra_v1",
+        "geno_brain_super_v1",
+        "geno_intent_brain_engine_v1",
+        "geno_learning_brain_basic_v1",
+        "geno_learning_brain_smart_v1",
+        "geno_learning_brain_ultra_v1",
+        "geno_execution_brain_engine_v1",
+        "geno_execution_brain_engine_v2",
+        "geno_engine_factory_brain_v1"
+    ],
+    "MEMORY": [
+        "geno_memory_engine_v1"
+    ],
+    "CONTROL": [
+        "geno_control_core_v1",
+        "geno_command_center_engine_v1",
+        "geno_general_command_center_v1",
+        "geno_general_command_center_v2"
+    ],
+    "EVOLUTION": [
+        "geno_self_evolution_engine_v1",
+        "geno_evolution_core_engine_v1"
+    ]
+}

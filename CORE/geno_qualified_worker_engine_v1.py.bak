@@ -1,0 +1,62 @@
+import os, json, subprocess, shutil, datetime
+
+BASE=os.path.expanduser("~/GENO_OPERATOR")
+REG=os.path.join(BASE,"geno_engine_registry.json")
+
+def load_registry():
+    if not os.path.exists(REG):
+        return {}
+    with open(REG) as f:
+        return json.load(f)
+
+def test_engine(path):
+    try:
+        subprocess.run(
+            ["python3", path],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            timeout=5
+        )
+        return True
+    except:
+        return False
+
+def repair_engine(name,path):
+    backup=path+".bak"
+
+    if os.path.exists(backup):
+        shutil.copy(backup,path)
+        print("Repaired from backup:",name)
+        return True
+
+    print("No backup available for:",name)
+    return False
+
+def run():
+
+    engines=load_registry()
+
+    print("\n=== GENO QUALIFIED WORKER ENGINE ===\n")
+    print("TIME:",datetime.datetime.now(),"\n")
+
+    repaired=0
+
+    for name,path in engines.items():
+
+        if not os.path.exists(path):
+            print(name,"-> MISSING")
+            continue
+
+        if test_engine(path):
+            print(name,"-> OK")
+        else:
+            print(name,"-> ERROR DETECTED")
+
+            if repair_engine(name,path):
+                repaired+=1
+
+    print("\nREPAIRED ENGINES:",repaired)
+    print("WORKER STATUS: COMPLETE")
+
+if __name__=="__main__":
+    run()

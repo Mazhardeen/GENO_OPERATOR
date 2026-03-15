@@ -1,0 +1,5 @@
+{
+  "name": "MD Voice",
+  "description": "Minimalist AI voice factory with smart casting and exact-length audio generation.",
+  "requestFramePermissions": []
+}

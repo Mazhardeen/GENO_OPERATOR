@@ -1,0 +1,35 @@
+import os, datetime
+
+def create_engine(name):
+    base="ENGINES"
+    os.makedirs(base, exist_ok=True)
+
+    folder=os.path.join(base,name)
+    os.makedirs(folder, exist_ok=True)
+
+    file=os.path.join(folder,f"{name}_engine_v1.py")
+
+    code=f'''"""
+GENO ENGINE
+Name: {name}
+Version: v1
+Created: {datetime.datetime.now()}
+"""
+
+def run(data=None):
+    print("GENO {name} engine running")
+    return "OK"
+
+
+if __name__=="__main__":
+    run()
+'''
+
+    with open(file,"w") as f:
+        f.write(code)
+
+    print("Engine created:",file)
+
+if __name__=="__main__":
+    name=input("Engine name: ")
+    create_engine(name)

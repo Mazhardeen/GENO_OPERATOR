@@ -1,0 +1,20 @@
+{
+  "engines": [
+    {
+      "name": "geno_core_engine_v1.py",
+      "path": "/data/data/com.termux/files/home/GENO_OPERATOR/CORE/geno_core_engine_v1.py",
+      "category": "CORE",
+      "time": "2026-03-15 15:06:23.529668"
+    },
+    {
+      "name": "geno_test_engine",
+      "path": "/data/data/com.termux/files/home/GENO_OPERATOR/GENERATED/geno_test_engine.py",
+      "time": "2026-03-15 15:15:42.573927"
+    },
+    {
+      "name": "geno_goat_farming_engine",
+      "path": "/data/data/com.termux/files/home/GENO_OPERATOR/GENERATED/geno_goat_farming_engine.py",
+      "time": "2026-03-15 16:00:56.832198"
+    }
+  ]
+}

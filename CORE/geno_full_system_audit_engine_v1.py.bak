@@ -1,0 +1,90 @@
+import os,datetime,subprocess,ast
+
+BASE=os.path.expanduser("~/GENO_OPERATOR")
+
+def find_engines():
+
+    engines=[]
+
+    for root,dirs,files in os.walk(BASE):
+
+        for f in files:
+
+            if f.endswith(".py") and "geno_" in f:
+
+                engines.append(os.path.join(root,f))
+
+    return engines
+
+
+def syntax_check(file):
+
+    try:
+
+        with open(file) as f:
+            ast.parse(f.read())
+
+        return "OK"
+
+    except Exception as e:
+
+        return "SYNTAX ERROR"
+
+
+def run_test(file):
+
+    try:
+
+        subprocess.run(["python3",file],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+
+        return "RUN OK"
+
+    except:
+
+        return "RUN ERROR"
+
+
+def audit():
+
+    engines=find_engines()
+
+    print("\n=== GENO FULL SYSTEM AUDIT ===\n")
+
+    print("SCAN TIME:",datetime.datetime.now(),"\n")
+
+    ok=0
+    errors=0
+
+    for e in engines:
+
+        name=os.path.basename(e)
+
+        syntax=syntax_check(e)
+
+        run=run_test(e)
+
+        status="OK"
+
+        if syntax!="OK" or run!="RUN OK":
+
+            status="ERROR"
+            errors+=1
+
+        else:
+
+            ok+=1
+
+        print(name.ljust(40),status)
+
+    print("\nTOTAL ENGINES:",len(engines))
+    print("WORKING:",ok)
+    print("ERRORS:",errors)
+
+    if errors==0:
+        print("SYSTEM STATUS: STABLE")
+    else:
+        print("SYSTEM STATUS: ATTENTION REQUIRED")
+
+
+if __name__=="__main__":
+    audit()

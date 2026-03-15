@@ -1,0 +1,8 @@
+{
+  "engines": [
+    "geno_test_engine.py",
+    "geno_goat_farming_engine.py",
+    "geno_goat_health_engine.py",
+    "geno_goat_management_engine.py"
+  ]
+}
